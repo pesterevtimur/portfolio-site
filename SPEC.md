@@ -4,11 +4,12 @@
 > от этого документа требует ADR в `decisions/D-NNN-*.md`. Если в коде/контенте
 > расходится со SPEC — спецификация выигрывает.
 
-**Версия:** 1.1
+**Версия:** 1.2
 **Принят:** 2026-05-19 (после brainstorm-сессии и approval Тимура)
 **Изменения v1.1:** §9 раскрыт фактурой super-agentic-ops (blocker снят);
 §11 заполнен реальными контактами (`@timursky`, email); §15 acceptance
 criteria для кейса 3 переформулирован.
+**Изменения v1.2:** §9 case-leadecho-leadgen reconciled с реальным состоянием M-001 (planned, not completed).
 **Связанные документы:** [`AGENTS.md`](./AGENTS.md), [`docs/brief.md`](./docs/brief.md), [`docs/learnings.md`](./docs/learnings.md)
 
 ---
@@ -208,8 +209,7 @@ Astro server endpoint. ADR обновим тогда.
 Содержание уже в брифе §7. Драфт текста — `drafts/case-leadecho.md`.
 Ключевые факты: spec-driven multi-agent setup, 3 агента с разделёнными
 ролями, adversarial questions, business value gate, machine-verifiable
-acceptance criteria. Результат — на 5-й день готовое холодное письмо для
-сегмента 172 ICP-компаний, прошедшее adversarial review.
+acceptance criteria. Цель Week 1: на 5-й день — холодное письмо для целевого сегмента из 172 компаний, прошедшее проверку. Сейчас закрыты: ICP-бриф (Day 3), 11 портированных сценариев холодных продаж (Day 2), M-001 статус «planned». Полный пакет холодных продаж в финальной доработке.
 
 **Кейс 2 — outstaff-matcher.**
 Локальный путь: `C:\Users\user\Documents\Claude\Projects\outstaff-matcher`.

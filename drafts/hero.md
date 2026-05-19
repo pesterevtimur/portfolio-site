@@ -12,7 +12,7 @@
 ---
 
 ## Mono label
-→ AI Architecture · B2B
+→ AI-архитектура · B2B
 
 ## Headline
 Запускаю AI-процессы,
