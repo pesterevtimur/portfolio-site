@@ -1,0 +1,117 @@
+:root {
+  --bg-base: #0a0a0f;
+  --bg-elevated: #14141c;
+  --bg-grad-hi: #1a1a2e;
+  --grid-line: rgba(255, 255, 255, 0.04);
+  --text-primary: #fafafa;
+  --text-secondary: #9090a8;
+  --text-mono-label: #8a8aa0;
+  --border-subtle: #2a2a3a;
+  --cta-bg: #fafafa;
+  --cta-text: #0a0a0f;
+
+  /* Карта компетенций — цвета зон */
+  --bar-strong: #fafafa;
+  --bar-medium: rgba(250, 250, 250, 0.55);
+  --bar-growing: rgba(144, 144, 168, 0.7);
+  --bar-outside: #2a2a3a;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  background: var(--bg-base);
+  color: var(--text-primary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+main {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--text-primary);
+  text-decoration: underline;
+  text-decoration-color: var(--border-subtle);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.15s ease;
+}
+
+a:hover {
+  text-decoration-color: var(--text-secondary);
+}
+
+.mono {
+  font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+}
+
+.label {
+  font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-mono-label);
+}
+
+.section {
+  padding-block: 96px;
+}
+
+.section--elevated {
+  background: var(--bg-elevated);
+}
+
+.section__head {
+  margin-bottom: 48px;
+}
+
+.section__title {
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-top: 8px;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--cta-bg);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+@media (max-width: 720px) {
+  main {
+    padding: 0 16px;
+  }
+
+  .section {
+    padding-block: 64px;
+  }
+
+  .section__title {
+    font-size: 24px;
+  }
+}
