@@ -27,3 +27,4 @@
 [2026-05-19] research | Competency map visualization — выбран Вариант 1 (горизонтальные бары): статический CSS, 0 KB JS, mood A совместим, 3 варианта исследованы (бары / 2×2 матрица / badge-list).
 [2026-05-19] research | Positioning research — 3 варианта зафиксированы, B выбран с битами A+C.
 [2026-05-19] decision | 4 ADR созданы: D-001..D-004 (positioning, tech-stack, domain proposed, visual-mood).
+[2026-05-19] draft | visual.md — design spec с CSS-токенами (14 переменных), типографикой, spacing system и mobile-breakpoints для Task 24 globals.css.
