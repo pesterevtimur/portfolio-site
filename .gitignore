@@ -1,0 +1,25 @@
+# Superpowers brainstorm session (mockups, server state)
+.superpowers/
+
+# Astro
+node_modules/
+dist/
+.astro/
+.output/
+
+# Env
+.env
+.env.local
+.env.production
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log
+
+# Build caches
+.cache/
+.parcel-cache/
+.turbo/
