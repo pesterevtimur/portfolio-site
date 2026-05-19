@@ -21,3 +21,4 @@
 [2026-05-19] research | super-agentic-ops изучен: 4-слойная архитектура, 4 закона, 7 skills, pressure-tested `evidence-before-action`. Фактура зафиксирована в SPEC.md §9 — blocker снят.
 [2026-05-19] decision | Email на сайте — pesterevtimur78@gmail.com (текущий). После выбора домена в D-003 рассмотреть t@<домен>.
 [2026-05-19] spec | SPEC.md v1.0 → v1.1: §9 раскрыт фактурой super-agentic-ops; §11 заполнен реальными контактами; §15 acceptance criteria переформулирован для кейса 3.
+[2026-05-19] research | Domain shortlist готов — 9 кандидатов проверены, 4 заняты (pesterev.tech, agentic.work, pesterev.team, agenticops.ru), топ-3 рекомендация: pesterev.ai > pesterev.dev > pesterev.ru.
