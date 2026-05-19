@@ -42,3 +42,4 @@
 [2026-05-19] feat | Astro 5 scaffold: package.json, astro.config.mjs (site: pesterev.ru), tsconfig (strict), Layout с meta-тегами, globals.css с 14 CSS-переменными из drafts/visual.md. npm run build proves green.
 [2026-05-19] feat | Hero.astro: full-bleed радиальный градиент + сетка 32px, headline 3 строки из drafts/hero.md (post Codex review), CTA Telegram + якорь #cases, mobile breakpoint 720px. npm run build green.
 [2026-05-19] feat | Tasks 26-27: CaseCard переиспользуемый компонент (props title/subtitle/metric/metricLabel + slot), Cases.astro подгружает Astro 5 content collection через glob loader, 3 MDX (leadecho/outstaff/super-agentic). #cases anchor работает.
+[2026-05-19] feat | Tasks 28-35 batch: 7 секций (Principles, CompetencyMap, Stack, About, Fit, Growth, Contacts) + final index.astro в proof-first порядке. Все 9 секций рендерятся, npm run build green, dist/index.html прошёл 8/8 anchor + 10/10 content grep.
