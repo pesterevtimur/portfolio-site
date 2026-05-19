@@ -55,24 +55,32 @@ const growth = [
 
   .growth__row {
     display: grid;
-    grid-template-columns: 56px 1fr;
-    gap: 16px;
-    align-items: start;
+    grid-template-columns: 80px 1fr;
+    gap: 24px;
+    align-items: baseline;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .growth__row:last-child {
+    border-bottom: none;
   }
 
   .growth__num {
     color: var(--text-mono-label);
-    font-size: 13px;
-    padding-top: 4px;
-    font-weight: 500;
+    font-size: 36px;
+    font-weight: 400;
+    letter-spacing: -0.04em;
+    line-height: 1;
   }
 
   .growth__title {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 600;
     color: var(--text-primary);
     margin-bottom: 6px;
-    line-height: 1.3;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
   }
 
   .growth__text {
@@ -87,10 +95,20 @@ const growth = [
     font-size: 13px;
   }
 
+  @media (min-width: 1000px) {
+    .growth__num {
+      font-size: 48px;
+    }
+  }
+
   @media (max-width: 720px) {
     .growth__row {
-      grid-template-columns: 40px 1fr;
-      gap: 12px;
+      grid-template-columns: 56px 1fr;
+      gap: 16px;
+      padding-bottom: 20px;
+    }
+    .growth__num {
+      font-size: 28px;
     }
     .growth__title {
       font-size: 17px;

@@ -18,6 +18,9 @@ const badges = [
       Жёсткие ТЗ перед стартом. Один AI пишет — другой проверяет.
       Видимая работа агентов вместо чёрного ящика.
     </p>
+    <p class="hero__tagline">
+      От ТЗ до запуска — не пишу код руками. Задаю рамки, в которых пишет AI.
+    </p>
     <div class="hero__cta">
       <a class="cta cta--primary" href="https://t.me/timursky">Написать в Telegram</a>
       <a class="cta cta--secondary" href="#cases">Кейсы ↓</a>
@@ -91,7 +94,19 @@ const badges = [
     line-height: 1.5;
     color: var(--text-secondary);
     max-width: 600px;
+    margin-bottom: 24px;
+  }
+
+  .hero__tagline {
+    font-family: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+    font-size: 13px;
+    letter-spacing: 0.02em;
+    color: var(--text-primary);
+    max-width: 600px;
+    padding-left: 16px;
+    border-left: 2px solid var(--text-primary);
     margin-bottom: 36px;
+    line-height: 1.5;
   }
 
   .hero__cta {

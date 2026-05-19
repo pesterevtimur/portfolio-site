@@ -14,6 +14,13 @@ const profiles = [
   },
 ];
 
+const formats = [
+  { name: 'Разовая консультация', price: 'от $100/час' },
+  { name: 'Аудит и план', price: '$2–15k за проект' },
+  { name: 'Fractional AI-архитектор', price: 'месяц / квартал' },
+  { name: 'Founding AI engineer / AI Lead', price: 'акции + база (РФ / EU стартапы)' },
+];
+
 const noFit = [
   'Если нужен специалист по обучению моделей или классической разработке AI (это другая роль).',
   'Если нужно «по-быстрому прикрутить ChatGPT» — это делается без меня.',
@@ -37,6 +44,18 @@ const noFit = [
       </li>
     ))}
   </ul>
+  <div class="fit__formats">
+    <h3 class="fit__formats-title">Открыт к</h3>
+    <ul class="fit__formats-list">
+      {formats.map((f) => (
+        <li class="fit__format">
+          <span class="fit__format-name">{f.name}</span>
+          <span class="fit__format-price mono">{f.price}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+
   <div class="fit__no">
     <h3 class="fit__no-title">Кому НЕ подойду</h3>
     <ul class="fit__no-list">
@@ -81,13 +100,67 @@ const noFit = [
     font-size: 15px;
   }
 
-  .fit__no {
-    padding-top: 24px;
+  .fit__formats {
+    padding: 24px 0;
     border-top: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
+    margin-bottom: 24px;
+  }
+
+  .fit__formats-title {
+    font-family: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-mono-label);
+    margin-bottom: 16px;
+  }
+
+  .fit__formats-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  @media (min-width: 720px) {
+    .fit__formats-list {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px 24px;
+    }
+  }
+
+  .fit__format {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .fit__format-name {
+    color: var(--text-primary);
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  .fit__format-price {
+    color: var(--text-secondary);
+    font-size: 12px;
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  .fit__no {
+    padding-top: 0;
   }
 
   .fit__no-title {
-    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+    font-family: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace;
     font-size: 12px;
     font-weight: 500;
     letter-spacing: 0.1em;

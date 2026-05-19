@@ -1,0 +1,105 @@
+---
+const stats = [
+  { value: '172', label: 'компании в первом B2B-сегменте, прошли quality-gate' },
+  { value: '−80%', label: 'время обработки HR-заявки (4 часа → 1 час)' },
+  { value: '+50%', label: 'приглашений на интервью за счёт качества анализа' },
+  { value: '7 / 7', label: 'навыков построил за неделю, pressure-tested' },
+];
+---
+
+<section class="impact" aria-label="Ключевые цифры из проектов">
+  <ul class="impact__list">
+    {stats.map((s) => (
+      <li class="impact__item">
+        <span class="impact__value">{s.value}</span>
+        <span class="impact__label">{s.label}</span>
+      </li>
+    ))}
+  </ul>
+</section>
+
+<style>
+  .impact {
+    padding: 64px 0 0;
+  }
+
+  .impact__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  @media (min-width: 880px) {
+    .impact__list {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .impact__item {
+    padding: 32px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-right: 1px solid var(--border-subtle);
+  }
+
+  .impact__item:nth-child(2n) {
+    border-right: none;
+  }
+
+  @media (min-width: 880px) {
+    .impact__item:nth-child(2n) {
+      border-right: 1px solid var(--border-subtle);
+    }
+    .impact__item:last-child {
+      border-right: none;
+    }
+  }
+
+  .impact__item:nth-child(1),
+  .impact__item:nth-child(2) {
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  @media (min-width: 880px) {
+    .impact__item:nth-child(1),
+    .impact__item:nth-child(2) {
+      border-bottom: none;
+    }
+  }
+
+  .impact__value {
+    font-family: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+    font-size: 56px;
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    color: var(--text-primary);
+  }
+
+  .impact__label {
+    color: var(--text-secondary);
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  @media (max-width: 720px) {
+    .impact {
+      padding: 48px 0 0;
+    }
+    .impact__item {
+      padding: 24px 16px;
+    }
+    .impact__value {
+      font-size: 40px;
+    }
+    .impact__label {
+      font-size: 12px;
+    }
+  }
+</style>

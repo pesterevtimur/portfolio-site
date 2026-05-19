@@ -60,24 +60,32 @@ const principles = [
 
   .principle {
     display: grid;
-    grid-template-columns: 56px 1fr;
-    gap: 16px;
-    align-items: start;
+    grid-template-columns: 80px 1fr;
+    gap: 24px;
+    align-items: baseline;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .principle:last-child {
+    border-bottom: none;
   }
 
   .principle__num {
     color: var(--text-mono-label);
-    font-size: 13px;
-    padding-top: 4px;
-    font-weight: 500;
+    font-size: 36px;
+    font-weight: 400;
+    letter-spacing: -0.04em;
+    line-height: 1;
   }
 
   .principle__title {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 600;
     color: var(--text-primary);
-    margin-bottom: 4px;
-    line-height: 1.3;
+    margin-bottom: 6px;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
   }
 
   .principle__text {
@@ -86,10 +94,20 @@ const principles = [
     line-height: 1.55;
   }
 
+  @media (min-width: 1000px) {
+    .principle__num {
+      font-size: 48px;
+    }
+  }
+
   @media (max-width: 720px) {
     .principle {
-      grid-template-columns: 40px 1fr;
-      gap: 12px;
+      grid-template-columns: 56px 1fr;
+      gap: 16px;
+      padding-bottom: 20px;
+    }
+    .principle__num {
+      font-size: 28px;
     }
     .principle__title {
       font-size: 17px;

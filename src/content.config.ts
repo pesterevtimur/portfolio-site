@@ -8,6 +8,7 @@ const cases = defineCollection({
     subtitle: z.string(),
     category: z.string(),
     accent: z.enum(['purple', 'red', 'blue']),
+    tags: z.array(z.string()).default([]),
     metric: z.string().optional(),
     metricLabel: z.string().optional(),
     order: z.number(),
