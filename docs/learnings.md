@@ -29,3 +29,4 @@
 [2026-05-19] decision | 4 ADR созданы: D-001..D-004 (positioning, tech-stack, domain proposed, visual-mood).
 [2026-05-19] draft | visual.md — design spec с CSS-токенами (14 переменных), типографикой, spacing system и mobile-breakpoints для Task 24 globals.css.
 [2026-05-19] draft | case-leadecho-leadgen.md (227 слов, в bd76f37). Факт «172 ICP» подтверждён в leadecho-leadgen/SPEC.md §3 и M-001.md. KP case 7.3 (+9,2% AOV, ROI 24×) подтверждён там же. M-001 status «в работе», не «завершён». [Учёл: subagent сначала случайно положил эту запись в leadecho-leadgen — soft-reset выполнен]
+[2026-05-19] draft | case-outstaff-matcher.md (243 слова, в 986cf53). Метрика «4ч→15м» НЕ подтверждена в source-репо (grep по *.md — нет). Заменена на «существенное сокращение ручной работы»; верифицируемые факты: 129 тестов зелёных, 5 CLI-субкоманд smoke OK (STATUS.md строки 1–3).
