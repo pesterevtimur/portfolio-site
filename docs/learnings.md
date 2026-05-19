@@ -32,3 +32,4 @@
 [2026-05-19] draft | case-outstaff-matcher.md (243 слова, в 986cf53). Метрика «4ч→15м» НЕ подтверждена в source-репо (grep по *.md — нет). Заменена на «существенное сокращение ручной работы»; верифицируемые факты: 129 тестов зелёных, 5 CLI-субкоманд smoke OK (STATUS.md строки 1–3).
 [2026-05-19] draft | case-super-agentic-ops.md — 4 слоя + 4 закона + 7 pressure-сценариев подтверждены в Downloads/super-agentic-ops-main.
 [2026-05-19] draft+research | hero.md, contacts.md (@timursky), publication-plan.md (MVP/v2/never-do) — все 3 коммита в portfolio-site.
+[2026-05-19] draft | batch — principles.md (5 правил), competency-map.md (4 зоны), stack.md (5 групп инструментов).
