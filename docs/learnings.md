@@ -36,3 +36,6 @@
 
 [2026-05-19] draft | batch — about.md (5-7 строк), fit.md (3 профиля + no-fit), growth.md (3 направления с дедлайнами).
 [2026-05-19] note | Codex review applied: 3 critical (SPEC §9 reconciliation, англицизмы case-1, gender fit), 8 important (LLM/LLM-API/founding-engineer translations + Hero label), 3 minor (артефакт «3 批 ×», context-engineering gloss, principle №5 gloss).
+
+[2026-05-19] decision | D-003 accepted — pesterev.ru выбран Тимуром (бюджет, RU-аудитория, простая регистрация).
+[2026-05-19] fix | outstaff-matcher case: реальные метрики от Тимура (5 менеджеров → 1 + AI, время заявки 4ч→1ч=−80%, приглашения на интервью +50%). SPEC §2 обновлён, draft v2.
