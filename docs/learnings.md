@@ -24,3 +24,4 @@
 [2026-05-19] research | Domain shortlist готов — 9 кандидатов проверены, 4 заняты (pesterev.tech, agentic.work, pesterev.team, agenticops.ru), топ-3 рекомендация: pesterev.ai > pesterev.dev > pesterev.ru.
 [2026-05-19] research | SEO research — 12 запросов (6 транзакционных, 4 информационных, 2 брендовых), топ-5 приоритетных: «ИИ консультант для стартапа», «AI аудит для стартапа», «AI-консультант B2B», «нанять AI архитектора», «Тимур Пестерев AI»; частотность грубая оценка (wordstat.yandex.ru требует авторизации).
 [2026-05-19] research | Analytics decision — выбрана Vercel Analytics (Hobby, бесплатно).
+[2026-05-19] research | Competency map visualization — выбран Вариант 1 (горизонтальные бары): статический CSS, 0 KB JS, mood A совместим, 3 варианта исследованы (бары / 2×2 матрица / badge-list).
