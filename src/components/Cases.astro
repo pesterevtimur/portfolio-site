@@ -1,0 +1,49 @@
+---
+import { getCollection, render } from 'astro:content';
+import CaseCard from './CaseCard.astro';
+
+const cases = (await getCollection('cases')).sort(
+  (a, b) => a.data.order - b.data.order
+);
+
+const renderedCases = await Promise.all(
+  cases.map(async (caseDoc) => {
+    const { Content } = await render(caseDoc);
+    return { caseDoc, Content };
+  })
+);
+---
+
+<section id="cases" class="section">
+  <header class="section__head">
+    <p class="label">Кейсы</p>
+    <h2 class="section__title">Что построил</h2>
+  </header>
+  <div class="cases__grid">
+    {renderedCases.map(({ caseDoc, Content }) => (
+      <CaseCard
+        title={caseDoc.data.title}
+        subtitle={caseDoc.data.subtitle}
+        metric={caseDoc.data.metric}
+        metricLabel={caseDoc.data.metricLabel}
+      >
+        <Content />
+      </CaseCard>
+    ))}
+  </div>
+</section>
+
+<style>
+  .cases__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  @media (min-width: 960px) {
+    .cases__grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+  }
+</style>

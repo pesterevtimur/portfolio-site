@@ -1,0 +1,124 @@
+---
+interface Props {
+  title: string;
+  subtitle: string;
+  metric?: string;
+  metricLabel?: string;
+}
+
+const { title, subtitle, metric, metricLabel } = Astro.props;
+---
+
+<article class="case-card">
+  <header class="case-card__head">
+    <h3 class="case-card__title">{title}</h3>
+    <p class="case-card__sub">{subtitle}</p>
+  </header>
+  {metric && (
+    <div class="case-card__metric">
+      <span class="case-card__metric-value">{metric}</span>
+      {metricLabel && <span class="case-card__metric-label">{metricLabel}</span>}
+    </div>
+  )}
+  <div class="case-card__body">
+    <slot />
+  </div>
+</article>
+
+<style>
+  .case-card {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    padding: 32px;
+    transition: border-color 0.15s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .case-card:hover {
+    border-color: var(--text-mono-label);
+  }
+
+  .case-card__head {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .case-card__title {
+    font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-mono-label);
+    letter-spacing: 0.05em;
+  }
+
+  .case-card__sub {
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.25;
+    color: var(--text-primary);
+  }
+
+  .case-card__metric {
+    background: var(--bg-base);
+    border-radius: 8px;
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    border: 1px solid var(--border-subtle);
+  }
+
+  .case-card__metric-value {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.05;
+    color: var(--text-primary);
+  }
+
+  .case-card__metric-label {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.4;
+  }
+
+  .case-card__body {
+    color: var(--text-primary);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .case-card__body :global(p) {
+    margin-bottom: 12px;
+  }
+
+  .case-card__body :global(p:last-child) {
+    margin-bottom: 0;
+  }
+
+  .case-card__body :global(code) {
+    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+    font-size: 0.9em;
+    background: var(--bg-base);
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: var(--text-secondary);
+  }
+
+  @media (max-width: 720px) {
+    .case-card {
+      padding: 24px;
+    }
+    .case-card__sub {
+      font-size: 18px;
+    }
+    .case-card__metric-value {
+      font-size: 24px;
+    }
+  }
+</style>
