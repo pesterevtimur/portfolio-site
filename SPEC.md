@@ -4,9 +4,12 @@
 > от этого документа требует ADR в `decisions/D-NNN-*.md`. Если в коде/контенте
 > расходится со SPEC — спецификация выигрывает.
 
-**Версия:** 1.0
+**Версия:** 1.1
 **Принят:** 2026-05-19 (после brainstorm-сессии и approval Тимура)
-**Связанные документы:** [`AGENTS.md`](./AGENTS.md), [`docs/brief.md`](./docs/brief.md)
+**Изменения v1.1:** §9 раскрыт фактурой super-agentic-ops (blocker снят);
+§11 заполнен реальными контактами (`@timursky`, email); §15 acceptance
+criteria для кейса 3 переформулирован.
+**Связанные документы:** [`AGENTS.md`](./AGENTS.md), [`docs/brief.md`](./docs/brief.md), [`docs/learnings.md`](./docs/learnings.md)
 
 ---
 
@@ -217,10 +220,41 @@ vibe-coding к agentic-coding, «один агент = одна задача», 
 специализированных Cowork-агента вместо универсального. **Метрика:
 4 часа → 15 минут на мэтчинг.**
 
-**Кейс 3 — super-agentic-ops.**
-GitHub URL из брифа возвращает 404. **Фактура придёт от Тимура отдельным
-сообщением.** До получения — placeholder в drafts. Не публиковать в MVP
-без описания.
+**Кейс 3 — super-agentic-ops** (в репо называется `agentic-ops`).
+Локальный путь источника: `C:\Users\user\Downloads\super-agentic-ops-main`
+(может быть перемещён Тимуром; для сайта используем факты, зафиксированные
+в этом SPEC). GitHub URL из брифа отдаёт 404 — репозиторий пока приватный.
+Драфт текста — `drafts/case-super-agentic-ops.md`.
+
+**Ключевые факты для кейса:**
+
+- **Идея:** персональный agent-harness, где знания компаундируются (а не
+  пишутся заново в каждом чате), а навыки переиспользуются между сессиями.
+- **4-слойная архитектура:** Raw (immutable источники) → Wiki
+  (LLM-генерируемые markdown-страницы) → Schema (`CLAUDE.md` как контракт)
+  → Skills (переиспользуемые процедуры). Картинка одной строкой:
+  «MCP/tools = доступ. Skills = поведение. Wiki = память.»
+- **4 закона:** skill не пишется руками — только через `skill-creator`;
+  wiki-страница не пишется руками — только через `wiki-*` skills; факт
+  без citation не существует; таблица не пересказывается — хранится как
+  данные. Это lint-контракты на ingest/build, не пожелания.
+- **7 skills построены за 7 дней (12-19 мая 2026):**
+  `wiki-llm-builder`, `wiki-ingest`, `wiki-lint`, `wiki-query`,
+  `evidence-before-action`, плюс доменные.
+- **Pressure-tested skill дисциплина:** `evidence-before-action` прошёл
+  через 7 pressure-сценариев (hot-lead pressure, effort avoidance,
+  statistical rationalization, vague-rule context, publish content,
+  mark-as-fact wiki, claim-complete tests) перед тем как быть помеченным
+  как `pressure_tested: yes`.
+- **Один реальный wiki построен:** `context-engineering` с первым
+  источником — эссе Карпатого «LLM Wiki» (gist 442a6bf5…). Citation
+  coverage цель ≥ 95%, orphan rate < 10%.
+
+**Кому интересен этот кейс:** прежде всего Профиль 3 (founding AI engineer
+для AI-стартапа — они сразу видят систему, а не демо) и Профиль 2
+(tech-lead, у которого AI-кусок «генерит ересь» — здесь видна
+методологическая дисциплина). Профиль 1 — через перевод: «у меня есть
+переиспользуемые правила работы AI, я не делаю каждый проект с нуля».
 
 **Принцип:** никаких выдуманных метрик, никаких фейковых клиентских цитат
 (см. §14, Project Law 3).
@@ -264,12 +298,16 @@ GitHub URL из брифа возвращает 404. **Фактура придё
 
 ## 11. Контактные каналы
 
-Из ответа Тимура в brainstorm-сессии:
+Из ответов Тимура в brainstorm-сессии:
 
-- **Telegram-username** — приоритетный канал. Значение — заполнит Тимур
-  при production-deploy (`drafts/contacts.md` ждёт значения).
-- **Email** — отображается публично. Значение — заполнит Тимур.
-- **Фотография портрета** — есть, файл Тимур положит сам в `public/`.
+- **Telegram-username:** `@timursky` (приоритетный канал входящих).
+- **Email:** `pesterevtimur78@gmail.com` (отображается публично; финальная
+  валидация в `drafts/contacts.md` — возможно стоит завести email вида
+  `t@<домен>` после выбора домена в `decisions/D-003-domain.md`).
+- **Фотография портрета:** есть, Тимур положит файл в `public/portrait.jpg`.
+  Прислана 2026-05-19 в Claude Code сессии; формат — JPG, в кафе, тёплое
+  освещение, нейтральный фон. Хорошо подходит под mood A (тёмный фон
+  Hero — портрет даст контраст).
 
 Дополнительно:
 
@@ -366,8 +404,9 @@ Machine-verifiable (можно проверить командой или кон
 - [ ] Open Graph картинка сгенерирована и видна при шаринге URL в Telegram.
 - [ ] `robots.txt` и `sitemap.xml` присутствуют.
 - [ ] Production-deploy выполнен **только после явного approve Тимура**.
-- [ ] super-agentic-ops кейс либо опубликован с реальной фактурой,
-      либо явно помечен как «скоро» — без выдуманного содержания.
+- [ ] super-agentic-ops кейс опубликован с фактурой, зафиксированной
+      в §9 этого SPEC (4 слоя, 4 закона, 7 skills, pressure-tested
+      `evidence-before-action`, context-engineering wiki).
 
 ---
 
