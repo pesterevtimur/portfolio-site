@@ -1,0 +1,133 @@
+---
+type Zone = 'strong' | 'medium' | 'growing' | 'outside';
+
+const competencies: { text: string; zone: Zone }[] = [
+  { text: 'Архитектура AI-нативных процессов с нуля', zone: 'strong' },
+  { text: 'Чёткие ТЗ для AI-агентов', zone: 'strong' },
+  { text: 'Координация нескольких AI с разной точкой зрения', zone: 'strong' },
+  { text: 'Решения с явными компромиссами, без перфекционизма', zone: 'strong' },
+  { text: 'Связка B2B-продаж и AI-инструментов', zone: 'strong' },
+  { text: 'Переделка системы, когда понимаю что не так построил', zone: 'strong' },
+  { text: 'Прикладная работа с языковыми моделями (Claude, GPT)', zone: 'medium' },
+  { text: 'Поиск по документам через эмбеддинги, векторные базы', zone: 'medium' },
+  { text: 'Проверка качества ответов AI: метрики, регрессии', zone: 'growing' },
+  { text: 'Видимость работы AI: логи, латентность, стоимость', zone: 'growing' },
+  { text: 'Гарантированный формат ответа AI: валидация, повторы', zone: 'growing' },
+  { text: 'Обучение и дообучение моделей с нуля', zone: 'outside' },
+  { text: 'Глубокое исследование в AI', zone: 'outside' },
+  { text: 'Классическая ML-разработка (рекомендательные системы, компьютерное зрение)', zone: 'outside' },
+];
+
+const zoneConfig: Record<Zone, { label: string; color: string; level: number }> = {
+  strong: { label: 'Подхожу', color: 'var(--bar-strong)', level: 4 },
+  medium: { label: 'Средний', color: 'var(--bar-medium)', level: 3 },
+  growing: { label: 'Расту', color: 'var(--bar-growing)', level: 2 },
+  outside: { label: 'Не моя зона', color: 'var(--bar-outside)', level: 0 },
+};
+---
+
+<section id="competency" class="section">
+  <header class="section__head">
+    <p class="label">Карта компетенций</p>
+    <h2 class="section__title">Где подхожу, где расту, где нужен другой</h2>
+  </header>
+
+  <ul class="competency">
+    {competencies.map((c) => {
+      const cfg = zoneConfig[c.zone];
+      const barWidth = `${cfg.level * 25}%`;
+      return (
+        <li class="competency__row">
+          <span class="competency__text">{c.text}</span>
+          <span class="competency__bar">
+            <span class="competency__bar-fill" style={`width: ${barWidth}; background: ${cfg.color}`}></span>
+          </span>
+          <span class="competency__zone mono">{cfg.label}</span>
+        </li>
+      );
+    })}
+  </ul>
+
+  <div class="competency__legend">
+    <p><strong>Где подхожу:</strong> строю системы и процессы — от ТЗ до запуска.</p>
+    <p><strong>Где расту:</strong> инструменты контроля качества и видимости AI-работы.</p>
+    <p><strong>Где нужен другой:</strong> обучение моделей, классический ML, глубокое AI-исследование.</p>
+  </div>
+</section>
+
+<style>
+  .competency {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 32px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .competency__row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 160px 100px;
+    gap: 16px;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .competency__row:first-child {
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .competency__text {
+    color: var(--text-primary);
+    font-size: 15px;
+    line-height: 1.4;
+  }
+
+  .competency__bar {
+    display: block;
+    background: var(--border-subtle);
+    height: 6px;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .competency__bar-fill {
+    display: block;
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.3s ease;
+  }
+
+  .competency__zone {
+    color: var(--text-secondary);
+    font-size: 11px;
+    text-align: right;
+  }
+
+  .competency__legend {
+    padding-top: 24px;
+    border-top: 1px solid var(--border-subtle);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .competency__legend strong {
+    color: var(--text-primary);
+  }
+
+  @media (max-width: 720px) {
+    .competency__row {
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      padding: 14px 0;
+    }
+    .competency__bar {
+      grid-column: 1 / -1;
+      order: 3;
+    }
+  }
+</style>

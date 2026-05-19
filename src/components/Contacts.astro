@@ -1,0 +1,96 @@
+---
+const channels = [
+  {
+    label: 'Telegram (приоритет)',
+    value: '@timursky',
+    href: 'https://t.me/timursky',
+  },
+  {
+    label: 'Email',
+    value: 'pesterevtimur78@gmail.com',
+    href: 'mailto:pesterevtimur78@gmail.com',
+  },
+];
+---
+
+<section id="contacts" class="section">
+  <header class="section__head">
+    <p class="label">Контакты</p>
+    <h2 class="section__title">Связаться</h2>
+  </header>
+  <div class="contacts">
+    {channels.map((c) => (
+      <a class="contact" href={c.href}>
+        <span class="contact__arrow">→</span>
+        <span class="contact__label">{c.label}</span>
+        <span class="contact__value mono">{c.value}</span>
+      </a>
+    ))}
+  </div>
+  <p class="contacts__note">
+    В будний день отвечаю в течение 6 часов (UTC+3). По выходным — медленнее.
+  </p>
+</section>
+
+<style>
+  .contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .contact {
+    display: grid;
+    grid-template-columns: 24px 200px 1fr;
+    gap: 16px;
+    align-items: center;
+    padding: 20px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-subtle);
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: border-color 0.15s ease;
+  }
+
+  .contact:hover {
+    border-color: var(--text-mono-label);
+  }
+
+  .contact__arrow {
+    color: var(--text-mono-label);
+    font-size: 16px;
+  }
+
+  .contact__label {
+    color: var(--text-secondary);
+    font-size: 14px;
+  }
+
+  .contact__value {
+    color: var(--text-primary);
+    font-size: 15px;
+  }
+
+  .contacts__note {
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  @media (max-width: 720px) {
+    .contact {
+      grid-template-columns: 24px 1fr;
+      grid-template-rows: auto auto;
+      gap: 4px 16px;
+      padding: 16px;
+    }
+    .contact__arrow {
+      grid-row: span 2;
+    }
+    .contact__value {
+      font-size: 14px;
+    }
+  }
+</style>

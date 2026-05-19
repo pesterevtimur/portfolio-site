@@ -1,0 +1,113 @@
+---
+const profiles = [
+  {
+    title: 'Если ты founder или CTO B2B-стартапа (5-50 человек)',
+    text: 'Хочешь добавить AI в продукт или внутренние процессы, но не знаешь с чего начать. Или начал и получил кашу. Бюджет $1-10k на проект. Пиши — разберёмся вместе.',
+  },
+  {
+    title: 'Если ты технический руководитель в средней компании',
+    text: 'Команда инженеров есть, AI-кусок уже что-то делает, но «генерит ересь». Нужен внешний взгляд, аудит, конкретный план. Бюджет $2-15k. Пиши.',
+  },
+  {
+    title: 'Если ты сооснователь раннего AI-стартапа',
+    text: 'Ищешь первого AI-инженера или AI-руководителя. Формат: акции + базовая зарплата. Хочешь видеть, что человек строит системы, а не пишет демо. Пиши — обсудим соответствие.',
+  },
+];
+
+const noFit = [
+  'Если нужен специалист по обучению моделей или классической разработке AI (это другая роль).',
+  'Если нужно «по-быстрому прикрутить ChatGPT» — это делается без меня.',
+  'Если нужен постоянный найм в большую компанию с корпоративной иерархией.',
+];
+---
+
+<section id="fit" class="section">
+  <header class="section__head">
+    <p class="label">Кому подхожу</p>
+    <h2 class="section__title">Три профиля клиентов</h2>
+  </header>
+  <ul class="fit">
+    {profiles.map((p) => (
+      <li class="fit__card">
+        <h3 class="fit__title">{p.title}</h3>
+        <p class="fit__text">{p.text}</p>
+      </li>
+    ))}
+  </ul>
+  <div class="fit__no">
+    <h3 class="fit__no-title">Кому НЕ подойду</h3>
+    <ul class="fit__no-list">
+      {noFit.map((n) => <li>{n}</li>)}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .fit {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .fit__card {
+    padding: 24px;
+    background: var(--bg-elevated);
+    border-radius: 12px;
+    border: 1px solid var(--border-subtle);
+    transition: border-color 0.15s ease;
+  }
+
+  .fit__card:hover {
+    border-color: var(--text-mono-label);
+  }
+
+  .fit__title {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    line-height: 1.35;
+  }
+
+  .fit__text {
+    color: var(--text-secondary);
+    line-height: 1.55;
+    font-size: 15px;
+  }
+
+  .fit__no {
+    padding-top: 24px;
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .fit__no-title {
+    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-mono-label);
+    margin-bottom: 16px;
+  }
+
+  .fit__no-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: var(--text-secondary);
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .fit__no-list li::before {
+    content: '—';
+    color: var(--text-mono-label);
+    margin-right: 8px;
+  }
+</style>

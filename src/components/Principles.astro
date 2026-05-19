@@ -1,0 +1,98 @@
+---
+const principles = [
+  {
+    num: '01',
+    title: 'ТЗ перед кодом.',
+    body: 'Сначала пишу что нужно построить и как проверить готовность — потом разрешаю AI писать код.',
+  },
+  {
+    num: '02',
+    title: 'Один AI пишет — другой проверяет.',
+    body: 'Автор и проверяющий — это разные сессии с разным взглядом. Иначе ошибки маскируются.',
+  },
+  {
+    num: '03',
+    title: 'Артефакты в файлы, не в чат.',
+    body: 'Контракты, правила, лог решений живут в git — чтобы будущая сессия начинала с известного состояния, а не с нуля.',
+  },
+  {
+    num: '04',
+    title: 'Бизнес-ценность перед сложностью.',
+    body: 'У каждой задачи в плане есть строка «зачем». Если строка пустая — задача откладывается.',
+  },
+  {
+    num: '05',
+    title: 'От vibe-coding к agentic-coding.',
+    body: 'От одного большого AI на всё — к нескольким специализированным с понятными контрактами между ними.',
+  },
+];
+---
+
+<section id="principles" class="section">
+  <header class="section__head">
+    <p class="label">Как я работаю</p>
+    <h2 class="section__title">Пять правил, по которым строю процессы с AI-агентами</h2>
+  </header>
+  <ol class="principles">
+    {principles.map((p) => (
+      <li class="principle">
+        <span class="principle__num mono">{p.num}</span>
+        <div class="principle__body">
+          <h3 class="principle__title">{p.title}</h3>
+          <p class="principle__text">{p.body}</p>
+        </div>
+      </li>
+    ))}
+  </ol>
+</section>
+
+<style>
+  .principles {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 0;
+  }
+
+  .principle {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 16px;
+    align-items: start;
+  }
+
+  .principle__num {
+    color: var(--text-mono-label);
+    font-size: 13px;
+    padding-top: 4px;
+    font-weight: 500;
+  }
+
+  .principle__title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+    line-height: 1.3;
+  }
+
+  .principle__text {
+    color: var(--text-secondary);
+    font-size: 16px;
+    line-height: 1.55;
+  }
+
+  @media (max-width: 720px) {
+    .principle {
+      grid-template-columns: 40px 1fr;
+      gap: 12px;
+    }
+    .principle__title {
+      font-size: 17px;
+    }
+    .principle__text {
+      font-size: 15px;
+    }
+  }
+</style>

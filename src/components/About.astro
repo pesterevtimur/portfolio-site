@@ -1,0 +1,73 @@
+---
+const lines = [
+  'Пять лет в IT — основатель и совладелец двух компаний в аутстаффе и рекрутменте.',
+  'До прошлого года писал процессы для людей: продажи, найм, операционка.',
+  'Последний год — переход в AI-first: вместо того, чтобы расширять команды, строю системы, где AI выполняет работу под чёткими правилами и проверками.',
+  'Не «попробовать AI» — а заменить целые куски ручной работы там, где правила можно описать явно.',
+  'Базируюсь в Казани, работаю удалённо с командами в РФ и за рубежом.',
+];
+---
+
+<section id="about" class="section">
+  <header class="section__head">
+    <p class="label">О тебе</p>
+    <h2 class="section__title">Тимур Пестерев</h2>
+  </header>
+  <div class="about">
+    <div class="about__portrait">
+      <img
+        src="/portrait.jpg"
+        alt="Тимур Пестерев"
+        width="320"
+        height="320"
+        loading="lazy"
+      />
+    </div>
+    <div class="about__text">
+      {lines.map((line) => <p>{line}</p>)}
+    </div>
+  </div>
+</section>
+
+<style>
+  .about {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    align-items: start;
+  }
+
+  @media (min-width: 720px) {
+    .about {
+      grid-template-columns: 280px 1fr;
+      gap: 48px;
+    }
+  }
+
+  .about__portrait {
+    max-width: 280px;
+  }
+
+  .about__portrait img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    display: block;
+    background: var(--bg-elevated);
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+  }
+
+  .about__text {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    color: var(--text-primary);
+    font-size: 16px;
+    line-height: 1.65;
+  }
+
+  .about__text p:nth-child(n+2) {
+    color: var(--text-secondary);
+  }
+</style>

@@ -1,0 +1,118 @@
+---
+const stack = [
+  {
+    group: 'AI-модели и API',
+    items: [
+      { name: 'Claude (Anthropic)', note: 'основная рабочая модель' },
+      { name: 'GPT (OpenAI)', note: 'для второго мнения и сравнения' },
+      { name: 'Codex CLI', note: 'отдельный пайплайн проверки' },
+    ],
+  },
+  {
+    group: 'Среды разработки агентов',
+    items: [
+      { name: 'Claude Code', note: 'CLI + VS Code' },
+      { name: 'Claude Desktop', note: 'архитектурные решения' },
+      { name: 'Skills + MCP servers', note: 'контракты работы' },
+    ],
+  },
+  {
+    group: 'Код и данные',
+    items: [
+      { name: 'Python', note: 'детерминированные пайплайны и интеграции' },
+      { name: 'SQLite / Postgres', note: 'где нужна персистентность' },
+      { name: 'Markdown в git', note: 'для wiki и спецификаций' },
+    ],
+  },
+  {
+    group: 'Инфраструктура',
+    items: [
+      { name: 'GitHub', note: 'версионирование артефактов' },
+      { name: 'Vercel', note: 'статический хостинг' },
+      { name: 'Telegram Bot API', note: 'для сборщиков и нотификаций' },
+    ],
+  },
+  {
+    group: 'Сейчас изучаю / собираю',
+    items: [
+      { name: 'Pressure-testing skills', note: 'через skill-creator' },
+      { name: 'LLM Wiki паттерн', note: 'эссе Карпатого' },
+    ],
+  },
+];
+---
+
+<section id="stack" class="section">
+  <header class="section__head">
+    <p class="label">Стек</p>
+    <h2 class="section__title">Чем работаю</h2>
+  </header>
+  <div class="stack">
+    {stack.map((group) => (
+      <div class="stack__group">
+        <h3 class="stack__group-title">{group.group}</h3>
+        <ul class="stack__items">
+          {group.items.map((item) => (
+            <li class="stack__item">
+              <span class="stack__item-name">{item.name}</span>
+              <span class="stack__item-note"> — {item.note}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .stack {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  @media (min-width: 720px) {
+    .stack {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1000px) {
+    .stack {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .stack__group-title {
+    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-mono-label);
+    margin-bottom: 12px;
+  }
+
+  .stack__items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .stack__item {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .stack__item-name {
+    color: var(--text-primary);
+    font-weight: 500;
+  }
+
+  .stack__item-note {
+    color: var(--text-secondary);
+  }
+</style>
