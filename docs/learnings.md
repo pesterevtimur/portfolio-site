@@ -39,3 +39,4 @@
 
 [2026-05-19] decision | D-003 accepted — pesterev.ru выбран Тимуром (бюджет, RU-аудитория, простая регистрация).
 [2026-05-19] fix | outstaff-matcher case: реальные метрики от Тимура (5 менеджеров → 1 + AI, время заявки 4ч→1ч=−80%, приглашения на интервью +50%). SPEC §2 обновлён, draft v2.
+[2026-05-19] feat | Astro 5 scaffold: package.json, astro.config.mjs (site: pesterev.ru), tsconfig (strict), Layout с meta-тегами, globals.css с 14 CSS-переменными из drafts/visual.md. npm run build proves green.
