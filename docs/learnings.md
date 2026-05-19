@@ -33,3 +33,5 @@
 [2026-05-19] draft | case-super-agentic-ops.md — 4 слоя + 4 закона + 7 pressure-сценариев подтверждены в Downloads/super-agentic-ops-main.
 [2026-05-19] draft+research | hero.md, contacts.md (@timursky), publication-plan.md (MVP/v2/never-do) — все 3 коммита в portfolio-site.
 [2026-05-19] draft | batch — principles.md (5 правил), competency-map.md (4 зоны), stack.md (5 групп инструментов).
+
+[2026-05-19] draft | batch — about.md (5-7 строк), fit.md (3 профиля + no-fit), growth.md (3 направления с дедлайнами).
