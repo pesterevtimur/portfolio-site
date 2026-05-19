@@ -35,3 +35,4 @@
 [2026-05-19] draft | batch — principles.md (5 правил), competency-map.md (4 зоны), stack.md (5 групп инструментов).
 
 [2026-05-19] draft | batch — about.md (5-7 строк), fit.md (3 профиля + no-fit), growth.md (3 направления с дедлайнами).
+[2026-05-19] note | Codex review applied: 3 critical (SPEC §9 reconciliation, англицизмы case-1, gender fit), 8 important (LLM/LLM-API/founding-engineer translations + Hero label), 3 minor (артефакт «3 批 ×», context-engineering gloss, principle №5 gloss).
