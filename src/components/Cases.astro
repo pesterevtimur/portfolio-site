@@ -16,14 +16,19 @@ const renderedCases = await Promise.all(
 
 <section id="cases" class="section">
   <header class="section__head">
-    <p class="label">Кейсы</p>
-    <h2 class="section__title">Что построил</h2>
+    <div class="section__head-row">
+      <span class="section__num mono">02</span>
+      <p class="label">Кейсы</p>
+    </div>
+    <h2 class="section__title">Три проекта с реальной фактурой — где AI делает работу по жёстким правилам</h2>
   </header>
   <div class="cases__grid">
     {renderedCases.map(({ caseDoc, Content }) => (
       <CaseCard
         title={caseDoc.data.title}
         subtitle={caseDoc.data.subtitle}
+        category={caseDoc.data.category}
+        accent={caseDoc.data.accent}
         metric={caseDoc.data.metric}
         metricLabel={caseDoc.data.metricLabel}
       >
@@ -40,7 +45,13 @@ const renderedCases = await Promise.all(
     gap: 20px;
   }
 
-  @media (min-width: 960px) {
+  @media (min-width: 720px) {
+    .cases__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1100px) {
     .cases__grid {
       grid-template-columns: repeat(3, 1fr);
       gap: 24px;

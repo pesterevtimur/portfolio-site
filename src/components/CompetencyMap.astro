@@ -3,7 +3,7 @@ type Zone = 'strong' | 'medium' | 'growing' | 'outside';
 
 const competencies: { text: string; zone: Zone }[] = [
   { text: 'Архитектура AI-нативных процессов с нуля', zone: 'strong' },
-  { text: 'Чёткие ТЗ для AI-агентов', zone: 'strong' },
+  { text: 'Чёткие ТЗ для AI-агентов (spec-driven)', zone: 'strong' },
   { text: 'Координация нескольких AI с разной точкой зрения', zone: 'strong' },
   { text: 'Решения с явными компромиссами, без перфекционизма', zone: 'strong' },
   { text: 'Связка B2B-продаж и AI-инструментов', zone: 'strong' },
@@ -15,21 +15,47 @@ const competencies: { text: string; zone: Zone }[] = [
   { text: 'Гарантированный формат ответа AI: валидация, повторы', zone: 'growing' },
   { text: 'Обучение и дообучение моделей с нуля', zone: 'outside' },
   { text: 'Глубокое исследование в AI', zone: 'outside' },
-  { text: 'Классическая ML-разработка (рекомендательные системы, компьютерное зрение)', zone: 'outside' },
+  { text: 'Классический ML: рекомендательные системы, компьютерное зрение', zone: 'outside' },
 ];
 
 const zoneConfig: Record<Zone, { label: string; color: string; level: number }> = {
-  strong: { label: 'Подхожу', color: 'var(--bar-strong)', level: 4 },
-  medium: { label: 'Средний', color: 'var(--bar-medium)', level: 3 },
+  strong: { label: 'Силён', color: 'var(--bar-strong)', level: 4 },
+  medium: { label: 'Средне', color: 'var(--bar-medium)', level: 3 },
   growing: { label: 'Расту', color: 'var(--bar-growing)', level: 2 },
   outside: { label: 'Не моя зона', color: 'var(--bar-outside)', level: 0 },
 };
+
+const domains = [
+  {
+    name: 'IT-аутстафф · IT-рекрутмент',
+    years: '5 лет',
+    note: 'Основатель и совладелец двух компаний. Знаю воронку, бенч, мэтчинг, выставление кандидатов.',
+  },
+  {
+    name: 'B2B SaaS для отделов продаж',
+    years: '2025—',
+    note: 'LeadEcho — речевая аналитика звонков, CRM-автозаполнение, коучинг менеджеров.',
+  },
+  {
+    name: 'B2B outbound · холодные продажи',
+    years: '5 лет',
+    note: 'ICP, сегментация, шаблоны писем, цепочки касаний. Свой опыт и операционка двух компаний.',
+  },
+  {
+    name: 'HR-tech · AI в рекрутменте',
+    years: '2024—',
+    note: 'AI-мэтчинг, сорсинг, бенчинг. Outstaff-matcher как реальный продукт под собственный бизнес.',
+  },
+];
 ---
 
 <section id="competency" class="section">
   <header class="section__head">
-    <p class="label">Карта компетенций</p>
-    <h2 class="section__title">Где подхожу, где расту, где нужен другой</h2>
+    <div class="section__head-row">
+      <span class="section__num mono">04</span>
+      <p class="label">Карта компетенций</p>
+    </div>
+    <h2 class="section__title">Где силён, где расту, где нужен другой</h2>
   </header>
 
   <ul class="competency">
@@ -39,7 +65,7 @@ const zoneConfig: Record<Zone, { label: string; color: string; level: number }> 
       return (
         <li class="competency__row">
           <span class="competency__text">{c.text}</span>
-          <span class="competency__bar">
+          <span class="competency__bar" aria-hidden="true">
             <span class="competency__bar-fill" style={`width: ${barWidth}; background: ${cfg.color}`}></span>
           </span>
           <span class="competency__zone mono">{cfg.label}</span>
@@ -49,9 +75,27 @@ const zoneConfig: Record<Zone, { label: string; color: string; level: number }> 
   </ul>
 
   <div class="competency__legend">
-    <p><strong>Где подхожу:</strong> строю системы и процессы — от ТЗ до запуска.</p>
+    <p><strong>Где силён:</strong> строю системы и процессы — от ТЗ до запуска.</p>
     <p><strong>Где расту:</strong> инструменты контроля качества и видимости AI-работы.</p>
     <p><strong>Где нужен другой:</strong> обучение моделей, классический ML, глубокое AI-исследование.</p>
+  </div>
+
+  <div class="domains">
+    <header class="domains__head">
+      <span class="label">Доменные зоны</span>
+      <h3 class="domains__title">Индустрии, в которых разбираюсь</h3>
+    </header>
+    <ul class="domains__list">
+      {domains.map((d) => (
+        <li class="domain">
+          <div class="domain__top">
+            <span class="domain__name">{d.name}</span>
+            <span class="domain__years mono">{d.years}</span>
+          </div>
+          <p class="domain__note">{d.note}</p>
+        </li>
+      ))}
+    </ul>
   </div>
 </section>
 
@@ -69,7 +113,7 @@ const zoneConfig: Record<Zone, { label: string; color: string; level: number }> 
     grid-template-columns: minmax(0, 1fr) 160px 100px;
     gap: 16px;
     align-items: center;
-    padding: 12px 0;
+    padding: 14px 0;
     border-bottom: 1px solid var(--border-subtle);
   }
 
@@ -95,7 +139,6 @@ const zoneConfig: Record<Zone, { label: string; color: string; level: number }> 
     display: block;
     height: 100%;
     border-radius: 3px;
-    transition: width 0.3s ease;
   }
 
   .competency__zone {
@@ -105,11 +148,12 @@ const zoneConfig: Record<Zone, { label: string; color: string; level: number }> 
   }
 
   .competency__legend {
-    padding-top: 24px;
+    padding: 24px 0;
     border-top: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 10px;
     color: var(--text-secondary);
     font-size: 14px;
     line-height: 1.6;
@@ -117,6 +161,74 @@ const zoneConfig: Record<Zone, { label: string; color: string; level: number }> 
 
   .competency__legend strong {
     color: var(--text-primary);
+  }
+
+  .domains {
+    margin-top: 48px;
+  }
+
+  .domains__head {
+    margin-bottom: 24px;
+  }
+
+  .domains__title {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    margin-top: 8px;
+    color: var(--text-primary);
+  }
+
+  .domains__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  @media (min-width: 720px) {
+    .domains__list {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+  }
+
+  .domain {
+    padding: 20px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+  }
+
+  .domain__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+
+  .domain__name {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .domain__years {
+    color: var(--text-mono-label);
+    font-size: 12px;
+    background: var(--bg-base);
+    padding: 4px 8px;
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+
+  .domain__note {
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.55;
   }
 
   @media (max-width: 720px) {

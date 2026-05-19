@@ -13,30 +13,32 @@ const stack = [
     items: [
       { name: 'Claude Code', note: 'CLI + VS Code' },
       { name: 'Claude Desktop', note: 'архитектурные решения' },
-      { name: 'Skills + MCP servers', note: 'контракты работы' },
+      { name: 'Skills + MCP servers', note: 'контракты работы агентов' },
     ],
   },
   {
-    group: 'Код и данные',
+    group: 'Код, данные, форматы',
     items: [
       { name: 'Python', note: 'детерминированные пайплайны и интеграции' },
       { name: 'SQLite / Postgres', note: 'где нужна персистентность' },
-      { name: 'Markdown в git', note: 'для wiki и спецификаций' },
+      { name: 'Markdown в git', note: 'wiki, спецификации, ADR' },
+      { name: 'JSON', note: 'структурированные ответы AI, обмен данных между агентами' },
+      { name: 'LLM Wiki паттерн', note: 'компаундирующая база знаний для каждого проекта' },
     ],
   },
   {
     group: 'Инфраструктура',
     items: [
       { name: 'GitHub', note: 'версионирование артефактов' },
-      { name: 'Vercel', note: 'статический хостинг' },
       { name: 'Telegram Bot API', note: 'для сборщиков и нотификаций' },
+      { name: 'PowerShell / Bash', note: 'автоматизация локальных пайплайнов' },
     ],
   },
   {
-    group: 'Сейчас изучаю / собираю',
+    group: 'Изучаю сейчас',
     items: [
       { name: 'Pressure-testing skills', note: 'через skill-creator' },
-      { name: 'LLM Wiki паттерн', note: 'эссе Карпатого' },
+      { name: 'Eval-framework Anthropic', note: 'для системной проверки качества' },
     ],
   },
 ];
@@ -44,13 +46,19 @@ const stack = [
 
 <section id="stack" class="section">
   <header class="section__head">
-    <p class="label">Стек</p>
+    <div class="section__head-row">
+      <span class="section__num mono">05</span>
+      <p class="label">Стек</p>
+    </div>
     <h2 class="section__title">Чем работаю</h2>
   </header>
   <div class="stack">
-    {stack.map((group) => (
+    {stack.map((group, i) => (
       <div class="stack__group">
-        <h3 class="stack__group-title">{group.group}</h3>
+        <h3 class="stack__group-title">
+          <span class="stack__group-num mono">0{i + 1}</span>
+          {group.group}
+        </h3>
         <ul class="stack__items">
           {group.items.map((item) => (
             <li class="stack__item">
@@ -68,12 +76,13 @@ const stack = [
   .stack {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 36px;
   }
 
   @media (min-width: 720px) {
     .stack {
       grid-template-columns: repeat(2, 1fr);
+      gap: 40px 48px;
     }
   }
 
@@ -83,6 +92,11 @@ const stack = [
     }
   }
 
+  .stack__group {
+    padding-top: 16px;
+    border-top: 1px solid var(--border-subtle);
+  }
+
   .stack__group-title {
     font-family: ui-monospace, 'SF Mono', Menlo, monospace;
     font-size: 12px;
@@ -90,7 +104,19 @@ const stack = [
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--text-mono-label);
-    margin-bottom: 12px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .stack__group-num {
+    color: var(--text-primary);
+    background: var(--bg-elevated);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    letter-spacing: 0.05em;
   }
 
   .stack__items {
@@ -99,7 +125,7 @@ const stack = [
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 10px;
   }
 
   .stack__item {

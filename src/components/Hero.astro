@@ -1,5 +1,9 @@
 ---
-// Hero.astro — финальный текст из drafts/hero.md, mood A визуал из SPEC §6
+const badges = [
+  { value: '5 лет', label: 'в IT-бизнесе' },
+  { value: '3 кейса', label: 'с реальной фактурой' },
+  { value: 'AI-first', label: 'с 2025' },
+];
 ---
 
 <section class="hero">
@@ -17,6 +21,14 @@
     <div class="hero__cta">
       <a class="cta cta--primary" href="https://t.me/timursky">Написать в Telegram</a>
       <a class="cta cta--secondary" href="#cases">Кейсы ↓</a>
+    </div>
+    <div class="hero__badges">
+      {badges.map((b) => (
+        <div class="badge">
+          <span class="badge__value">{b.value}</span>
+          <span class="badge__label mono">{b.label}</span>
+        </div>
+      ))}
     </div>
   </div>
 </section>
@@ -54,7 +66,7 @@
     z-index: 2;
     max-width: 1080px;
     margin: 0 auto;
-    padding: 96px 24px 64px;
+    padding: 120px 24px 80px;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -78,20 +90,21 @@
     font-size: 18px;
     line-height: 1.5;
     color: var(--text-secondary);
-    max-width: 580px;
-    margin-bottom: 32px;
+    max-width: 600px;
+    margin-bottom: 36px;
   }
 
   .hero__cta {
     display: flex;
     gap: 12px;
     flex-wrap: wrap;
+    margin-bottom: 64px;
   }
 
   .cta {
     display: inline-block;
-    padding: 12px 20px;
-    border-radius: 6px;
+    padding: 14px 22px;
+    border-radius: 8px;
     text-decoration: none;
     font-size: 15px;
     font-weight: 500;
@@ -120,9 +133,41 @@
     background: var(--border-subtle);
   }
 
+  .hero__badges {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 12px;
+    justify-content: start;
+  }
+
+  .badge {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 120px;
+  }
+
+  .badge__value {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.015em;
+    line-height: 1.1;
+  }
+
+  .badge__label {
+    color: var(--text-mono-label);
+    font-size: 11px;
+    letter-spacing: 0.05em;
+  }
+
   @media (max-width: 720px) {
     .hero__inner {
-      padding: 64px 16px 48px;
+      padding: 96px 16px 48px;
     }
 
     .hero__headline {
@@ -134,8 +179,22 @@
     }
 
     .cta {
-      padding: 10px 16px;
+      padding: 12px 18px;
       font-size: 14px;
+    }
+
+    .hero__badges {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+
+    .badge {
+      padding: 14px 16px;
+      min-width: 0;
+    }
+
+    .badge__value {
+      font-size: 18px;
     }
   }
 </style>

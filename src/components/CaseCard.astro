@@ -2,24 +2,40 @@
 interface Props {
   title: string;
   subtitle: string;
+  category: string;
+  accent: 'purple' | 'red' | 'blue';
   metric?: string;
   metricLabel?: string;
 }
 
-const { title, subtitle, metric, metricLabel } = Astro.props;
+const { title, subtitle, category, accent, metric, metricLabel } = Astro.props;
+
+const accentColors = {
+  purple: { glow: 'rgba(120, 100, 200, 0.18)', edge: 'rgba(120, 100, 200, 0.4)' },
+  red: { glow: 'rgba(200, 80, 80, 0.15)', edge: 'rgba(200, 80, 80, 0.35)' },
+  blue: { glow: 'rgba(80, 130, 200, 0.15)', edge: 'rgba(80, 130, 200, 0.35)' },
+};
+
+const c = accentColors[accent];
 ---
 
-<article class="case-card">
+<article class="case-card" style={`--accent-glow: ${c.glow}; --accent-edge: ${c.edge};`}>
+  <div class="case-card__accent" aria-hidden="true"></div>
+
   <header class="case-card__head">
-    <h3 class="case-card__title">{title}</h3>
-    <p class="case-card__sub">{subtitle}</p>
+    <span class="case-card__category mono">{category}</span>
+    <span class="case-card__slug mono">{title}</span>
   </header>
+
+  <h3 class="case-card__title">{subtitle}</h3>
+
   {metric && (
     <div class="case-card__metric">
       <span class="case-card__metric-value">{metric}</span>
       {metricLabel && <span class="case-card__metric-label">{metricLabel}</span>}
     </div>
   )}
+
   <div class="case-card__body">
     <slot />
   </div>
@@ -27,46 +43,79 @@ const { title, subtitle, metric, metricLabel } = Astro.props;
 
 <style>
   .case-card {
+    position: relative;
     background: var(--bg-elevated);
     border: 1px solid var(--border-subtle);
-    border-radius: 12px;
-    padding: 32px;
-    transition: border-color 0.15s ease;
+    border-radius: 16px;
+    padding: 28px;
+    transition: border-color 0.2s ease, transform 0.2s ease;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 18px;
+    overflow: hidden;
   }
 
   .case-card:hover {
-    border-color: var(--text-mono-label);
+    border-color: var(--accent-edge);
+    transform: translateY(-2px);
+  }
+
+  .case-card__accent {
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 280px;
+    height: 280px;
+    background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .case-card__head,
+  .case-card__title,
+  .case-card__metric,
+  .case-card__body {
+    position: relative;
+    z-index: 1;
   }
 
   .case-card__head {
     display: flex;
-    flex-direction: column;
-    gap: 4px;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
   }
 
-  .case-card__title {
-    font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
-    font-size: 14px;
+  .case-card__category {
+    background: var(--bg-base);
+    border: 1px solid var(--accent-edge);
+    color: var(--text-primary);
+    font-size: 11px;
     font-weight: 500;
+    letter-spacing: 0.12em;
+    padding: 5px 10px;
+    border-radius: 6px;
+    text-transform: uppercase;
+  }
+
+  .case-card__slug {
     color: var(--text-mono-label);
+    font-size: 12px;
     letter-spacing: 0.05em;
   }
 
-  .case-card__sub {
-    font-size: 20px;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-    line-height: 1.25;
+  .case-card__title {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
     color: var(--text-primary);
   }
 
   .case-card__metric {
     background: var(--bg-base);
-    border-radius: 8px;
-    padding: 16px 20px;
+    border-radius: 10px;
+    padding: 16px 18px;
     display: flex;
     flex-direction: column;
     gap: 6px;
@@ -74,27 +123,33 @@ const { title, subtitle, metric, metricLabel } = Astro.props;
   }
 
   .case-card__metric-value {
-    font-size: 28px;
+    font-size: 30px;
     font-weight: 700;
-    letter-spacing: -0.025em;
-    line-height: 1.05;
+    letter-spacing: -0.03em;
+    line-height: 1;
     color: var(--text-primary);
+    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
   }
 
   .case-card__metric-label {
-    font-size: 13px;
+    font-size: 12px;
     color: var(--text-secondary);
-    line-height: 1.4;
+    line-height: 1.45;
   }
 
   .case-card__body {
     color: var(--text-primary);
-    font-size: 15px;
-    line-height: 1.6;
+    font-size: 14px;
+    line-height: 1.65;
   }
 
   .case-card__body :global(p) {
     margin-bottom: 12px;
+    color: var(--text-secondary);
+  }
+
+  .case-card__body :global(p:first-child) {
+    color: var(--text-primary);
   }
 
   .case-card__body :global(p:last-child) {
@@ -112,10 +167,10 @@ const { title, subtitle, metric, metricLabel } = Astro.props;
 
   @media (max-width: 720px) {
     .case-card {
-      padding: 24px;
+      padding: 22px;
     }
-    .case-card__sub {
-      font-size: 18px;
+    .case-card__title {
+      font-size: 19px;
     }
     .case-card__metric-value {
       font-size: 24px;

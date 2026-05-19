@@ -1,0 +1,128 @@
+---
+const links = [
+  { href: '#cases', text: 'Кейсы' },
+  { href: '#principles', text: 'Принципы' },
+  { href: '#competency', text: 'Карта' },
+  { href: '#fit', text: 'Кому подхожу' },
+];
+---
+
+<header class="topnav">
+  <div class="topnav__inner">
+    <a class="topnav__logo" href="#top">
+      <span class="topnav__logo-mark mono">T.</span>
+      <span class="topnav__logo-text">Тимур Пестерев</span>
+    </a>
+    <nav class="topnav__nav" aria-label="Главная навигация">
+      <ul class="topnav__links">
+        {links.map((l) => (
+          <li>
+            <a href={l.href}>{l.text}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+    <a class="topnav__cta" href="https://t.me/timursky">Написать →</a>
+  </div>
+</header>
+
+<style>
+  .topnav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(10, 10, 15, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .topnav__inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .topnav__logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--text-primary);
+    font-weight: 500;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+
+  .topnav__logo-mark {
+    background: var(--text-primary);
+    color: var(--bg-base);
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    font-size: 11px;
+    font-weight: 700;
+  }
+
+  .topnav__nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+
+  .topnav__links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 24px;
+  }
+
+  .topnav__links a {
+    color: var(--text-secondary);
+    font-size: 14px;
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .topnav__links a:hover {
+    color: var(--text-primary);
+  }
+
+  .topnav__cta {
+    background: var(--cta-bg);
+    color: var(--cta-text);
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    transition: filter 0.15s ease;
+    flex-shrink: 0;
+  }
+
+  .topnav__cta:hover {
+    filter: brightness(0.95);
+  }
+
+  @media (max-width: 880px) {
+    .topnav__nav {
+      display: none;
+    }
+    .topnav__inner {
+      padding: 10px 16px;
+      justify-content: space-between;
+    }
+    .topnav__logo-text {
+      display: none;
+    }
+  }
+</style>

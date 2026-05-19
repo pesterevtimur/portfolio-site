@@ -6,6 +6,8 @@ const cases = defineCollection({
   schema: z.object({
     title: z.string(),
     subtitle: z.string(),
+    category: z.string(),
+    accent: z.enum(['purple', 'red', 'blue']),
     metric: z.string().optional(),
     metricLabel: z.string().optional(),
     order: z.number(),
