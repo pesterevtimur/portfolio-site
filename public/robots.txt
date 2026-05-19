@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pesterev.ru/sitemap-index.xml

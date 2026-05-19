@@ -1,5 +1,6 @@
 ---
 import '../styles/globals.css';
+import Analytics from '@vercel/analytics/astro';
 
 interface Props {
   title: string;
@@ -32,5 +33,6 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://pesterev.ru
     <main>
       <slot />
     </main>
+    <Analytics />
   </body>
 </html>
