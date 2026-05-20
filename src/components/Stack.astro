@@ -22,8 +22,17 @@ const stack = [
       { name: 'Python', note: 'детерминированные пайплайны и интеграции' },
       { name: 'SQLite / Postgres', note: 'где нужна персистентность' },
       { name: 'Markdown в git', note: 'wiki, спецификации, ADR' },
-      { name: 'JSON', note: 'структурированные ответы AI, обмен данных между агентами' },
+      { name: 'JSON / structured output', note: 'схемы для ответов AI, обмен между агентами' },
       { name: 'LLM Wiki паттерн', note: 'компаундирующая база знаний для каждого проекта' },
+    ],
+  },
+  {
+    group: 'AQA, evals, наблюдаемость',
+    items: [
+      { name: 'Codex CLI как QA-агент', note: 'отдельный пайплайн проверки чужого AI-вывода' },
+      { name: 'Eval-фреймворки', note: 'Anthropic evals, OpenAI evals — изучаю и применяю' },
+      { name: 'Golden datasets', note: 'базовые наборы для регрессионных тестов' },
+      { name: 'Pressure-testing skills', note: '7+ стресс-сценариев перед публикацией навыка' },
     ],
   },
   {
@@ -32,13 +41,14 @@ const stack = [
       { name: 'GitHub', note: 'версионирование артефактов' },
       { name: 'Telegram Bot API', note: 'для сборщиков и нотификаций' },
       { name: 'PowerShell / Bash', note: 'автоматизация локальных пайплайнов' },
+      { name: 'Vercel', note: 'статический хостинг (для портфолио и лендингов)' },
     ],
   },
   {
     group: 'Изучаю сейчас',
     items: [
-      { name: 'Pressure-testing skills', note: 'через skill-creator' },
-      { name: 'Eval-framework Anthropic', note: 'для системной проверки качества' },
+      { name: 'Production observability для AI', note: 'логи, трейсы, latency/cost per request' },
+      { name: 'A/B-тестирование AI-фичей', note: 'структурно, не «работает / не работает»' },
     ],
   },
 ];
