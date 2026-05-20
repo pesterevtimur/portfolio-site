@@ -1,18 +1,18 @@
 ---
 const stack = [
   {
-    group: 'AI-модели и API',
+    group: 'AI-модели',
     items: [
       { name: 'Claude (Anthropic)', note: 'основная рабочая модель' },
       { name: 'GPT (OpenAI)', note: 'для второго мнения и сравнения' },
-      { name: 'Codex CLI', note: 'отдельный пайплайн проверки' },
     ],
   },
   {
     group: 'Среды разработки агентов',
     items: [
-      { name: 'Claude Code', note: 'CLI + VS Code' },
-      { name: 'Claude Desktop', note: 'архитектурные решения' },
+      { name: 'Claude Code', note: 'основной исполнитель — CLI + VS Code' },
+      { name: 'Codex CLI', note: 'второй исполнитель: реализует задачи параллельно с Claude Code под общим планом и ТЗ, плюс взаимная проверка' },
+      { name: 'Claude Desktop', note: 'архитектурные решения, бизнес-анализ' },
       { name: 'Skills + MCP servers', note: 'контракты работы агентов' },
     ],
   },
@@ -29,7 +29,7 @@ const stack = [
   {
     group: 'AQA, evals, наблюдаемость',
     items: [
-      { name: 'Codex CLI как QA-агент', note: 'отдельный пайплайн проверки чужого AI-вывода' },
+      { name: 'Взаимный AQA Claude ↔ Codex', note: 'два исполнителя проверяют код и спецификации друг друга под одним планом' },
       { name: 'Eval-фреймворки', note: 'Anthropic evals, OpenAI evals — изучаю и применяю' },
       { name: 'Golden datasets', note: 'базовые наборы для регрессионных тестов' },
       { name: 'Pressure-testing skills', note: '7+ стресс-сценариев перед публикацией навыка' },
