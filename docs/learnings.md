@@ -58,3 +58,5 @@
 [2026-05-28] decision | D-003 amended — pesterev.ru оказался занят при попытке регистрации (вопреки who.is от 2026-05-19), Тимур купил pesterev.tech ($50.98/год, в бюджете ≤$100). Конфиги обновлены: astro.config.mjs site, Layout.astro canonical fallback, robots.txt sitemap, SPEC §12 + чек-лист §15 + версия 1.3→1.4. Build green.
 
 [2026-05-28] note | Mobile staging (Тимур визуально проверил с телефона): всё ок, ничего не съехало. Desktop Tab + focus-ring — пока не проверен.
+
+[2026-05-28] feat | public/portrait.jpg добавлен (269 KB, источник: Desktop\VsemirSoft\фотки\photo_2025-04-02_13-23-14.jpg). About.astro уже ссылается на /portrait.jpg (320×320, loading=lazy, object-fit cover) — изменений в коде не требовалось. Build green.
