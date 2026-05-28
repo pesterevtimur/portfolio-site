@@ -50,3 +50,5 @@
 [2026-05-20] feat | Codex repositioning: из «QA-агент» в «второй исполнитель параллельно с Claude Code под общим планом и ТЗ». Stack — Codex перенесён в «Среды разработки агентов» рядом с Claude Code (был в AI-модели). AQA-группа: «Взаимный AQA Claude ↔ Codex». Кейс leadecho: «два исполнителя, которые реализуют задачи параллельно». Competency: «Координация двух исполнителей под одним планом» (было «нескольких AI с разной точкой зрения»).
 
 [2026-05-28] chore | GitHub remote добавлен: https://github.com/pesterevtimur/portfolio-site (public). `git push -u origin main` прошёл, 65 коммитов опубликованы. Approval gate AGENTS.md §4.2 закрыт.
+
+[2026-05-28] chore | Vercel staging deploy через Git Integration (scope: pesterevtimur78-7103s-projects). Astro auto-detect сработал. Hero рендерится с градиентом + сеткой + badges (5 лет / 3 кейса / AI-first). Approval gate AGENTS.md §4.3 (первичный Vercel deploy) — закрыт.
