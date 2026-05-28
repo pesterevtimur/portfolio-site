@@ -23,3 +23,7 @@ Thumbs.db
 .cache/
 .parcel-cache/
 .turbo/
+
+# Lighthouse reports (генерируются локально, baseline хранится в docs/learnings.md)
+docs/lighthouse-*.json
+docs/lighthouse-*.html

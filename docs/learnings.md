@@ -52,3 +52,5 @@
 [2026-05-28] chore | GitHub remote добавлен: https://github.com/pesterevtimur/portfolio-site (public). `git push -u origin main` прошёл, 65 коммитов опубликованы. Approval gate AGENTS.md §4.2 закрыт.
 
 [2026-05-28] chore | Vercel staging deploy через Git Integration (scope: pesterevtimur78-7103s-projects). Astro auto-detect сработал. Hero рендерится с градиентом + сеткой + badges (5 лет / 3 кейса / AI-first). Approval gate AGENTS.md §4.3 (первичный Vercel deploy) — закрыт.
+
+[2026-05-28] note | Lighthouse staging baseline (portfolio-site-six-snowy.vercel.app, lighthouse v12). Mobile (slow-4G+4×CPU): Perf 89 / A11y 100 / BP 100 / SEO 100 / Agentic 100 — FCP/LCP 3.0с, TBT 0, CLS 0; opportunities — только 39мс server. Desktop: Perf 98 / A11y 100 / BP 100 / SEO 100 / Agentic 100 — FCP/LCP 0.9с. Sufficient для Task 43 acceptance, дальше — закупка домена и production cutover.
