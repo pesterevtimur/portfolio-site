@@ -49,3 +49,15 @@ Append одну строку в `docs/learnings.md`:
 ```
 
 Типы: `spec`, `research`, `draft`, `decision`, `milestone`, `docs`, `chore`, `blocker`, `note`.
+
+## 7. AI development workflow — 5-skill chain
+
+Для любой кодовой работы (новый компонент Astro, рефактор секции, новая интеграция) — цепочка из 5 personal-скиллов в `~/.claude/skills/`, срабатывающих автоматически:
+
+1. **`research-before-design`** — parallel subagents собирают факты по codebase, БЕЗ мнений.
+2. **`design-before-plan`** — C4 + Data Flow + Sequence + ADR с альтернативами.
+3. **`phased-plan-before-code`** — декомпозиция: 1 фаза = 1 коммит + тесты + CI green.
+4. **`subagent-coding-team`** — multi-role: dev + code-reviewer + security + architect-checker.
+5. **`gates-before-merge`** — обязательные ворота перед commit/push: build/lint/tests/spec-compliance.
+
+Pinned копии — [`agentic-ops-cc/library/skills/`](../../Claude/agentic-ops-cc/library/skills/). Статус: validated (`pressure_tested: status: yes`, 2026-05-24, 15/15 GREEN).
