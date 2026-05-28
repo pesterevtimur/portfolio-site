@@ -54,3 +54,7 @@
 [2026-05-28] chore | Vercel staging deploy через Git Integration (scope: pesterevtimur78-7103s-projects). Astro auto-detect сработал. Hero рендерится с градиентом + сеткой + badges (5 лет / 3 кейса / AI-first). Approval gate AGENTS.md §4.3 (первичный Vercel deploy) — закрыт.
 
 [2026-05-28] note | Lighthouse staging baseline (portfolio-site-six-snowy.vercel.app, lighthouse v12). Mobile (slow-4G+4×CPU): Perf 89 / A11y 100 / BP 100 / SEO 100 / Agentic 100 — FCP/LCP 3.0с, TBT 0, CLS 0; opportunities — только 39мс server. Desktop: Perf 98 / A11y 100 / BP 100 / SEO 100 / Agentic 100 — FCP/LCP 0.9с. Sufficient для Task 43 acceptance, дальше — закупка домена и production cutover.
+
+[2026-05-28] decision | D-003 amended — pesterev.ru оказался занят при попытке регистрации (вопреки who.is от 2026-05-19), Тимур купил pesterev.tech ($50.98/год, в бюджете ≤$100). Конфиги обновлены: astro.config.mjs site, Layout.astro canonical fallback, robots.txt sitemap, SPEC §12 + чек-лист §15 + версия 1.3→1.4. Build green.
+
+[2026-05-28] note | Mobile staging (Тимур визуально проверил с телефона): всё ок, ничего не съехало. Desktop Tab + focus-ring — пока не проверен.

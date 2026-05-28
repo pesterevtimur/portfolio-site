@@ -3,7 +3,7 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://pesterev.ru',
+  site: 'https://pesterev.tech',
   integrations: [mdx(), sitemap()],
   build: {
     inlineStylesheets: 'always',
