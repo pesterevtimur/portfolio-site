@@ -60,3 +60,7 @@
 [2026-05-28] note | Mobile staging (Тимур визуально проверил с телефона): всё ок, ничего не съехало. Desktop Tab + focus-ring — пока не проверен.
 
 [2026-05-28] feat | public/portrait.jpg добавлен (269 KB, источник: Desktop\VsemirSoft\фотки\photo_2025-04-02_13-23-14.jpg). About.astro уже ссылается на /portrait.jpg (320×320, loading=lazy, object-fit cover) — изменений в коде не требовалось. Build green.
+
+[2026-05-28] milestone | pesterev.tech ушёл в прод. DNS-зону Reg.ru обновили (A @ → 216.198.79.1, CNAME www → vercel-dns-017). Vercel выписал Let's Encrypt SSL. apex → www редирект 307 настроен Vercel'ом. HSTS включён. Approval gate AGENTS.md §4.3 (production deploy) закрыт. M-001 формально завершён, остаётся только desktop Tab/focus a11y manual check как nice-to-have.
+
+[2026-05-29] design | Brainstorm magnetic-gradient hover (Hero + CaseCard, desktop-only, через @property native CSS interpolation). Spec в docs/superpowers/specs/2026-05-29-magnetic-gradient-hover-design.md. Подход A (CSS @property + transition) выбран против rAF-петли — меньше JS, дешевле, graceful degrade на старых Safari.
