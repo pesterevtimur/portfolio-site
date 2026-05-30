@@ -1,0 +1,31 @@
+# Тимур Пестерев — AI-архитектор для B2B
+
+> Запускаю AI-процессы, которые не разваливаются на втором месяце. Жёсткие ТЗ перед стартом. Один AI пишет — другой проверяет. Видимая работа агентов вместо чёрного ящика.
+
+Spec-driven AI-архитектор. Помогаю стартапам и B2B-командам строить процессы, где AI выполняет работу под чёткими правилами и проверками — вместо «попробовать AI». 5 лет в IT-бизнесе, 3 кейса с реальной фактурой, AI-first с 2025.
+
+## Кейсы
+
+- [LeadEcho — мультиагентная система холодных продаж для B2B SaaS](https://www.pesterev.tech/#cases): 172 ICP-компании в первом сегменте, два AI-исполнителя (Claude Code + Codex CLI) работают параллельно под общим SPEC.md и взаимно проверяют друг друга, 11 сценариев холодных продаж прошли adversarial-проверку.
+- [Outstaff-matcher — AI-мэтчинг кандидатов для IT-аутстаффа](https://www.pesterev.tech/#cases): 5 менеджеров → 1 + AI, время обработки заявки 4ч → 1ч (-80%), приглашения на интервью +50%, 129 тестов зелёных.
+- [super-agentic-ops — методологический слой для AI-разработки](https://www.pesterev.tech/#cases): 4-слойная архитектура (контракты + memory + skills + sub-agents), 4 закона knowledge-discipline, 7 pressure-tested skills.
+
+## Принципы и подход
+
+- [5 правил работы с AI](https://www.pesterev.tech/#principles): SPEC.md как источник правды, adversarial review между AI-агентами, видимые рамки вместо чёрного ящика, real fact > marketing claim, no self-merge.
+- [Карта компетенций](https://www.pesterev.tech/#competency): где силён (архитектура AI-нативных процессов, координация двух исполнителей), где расту (eval-фреймворки, observability), где нужен другой (обучение моделей, классический ML).
+
+## Стек
+
+- [Чем работаю](https://www.pesterev.tech/#stack): Claude (Anthropic), GPT (OpenAI), Claude Code, Codex CLI, Claude Desktop, Skills + MCP servers, Python, SQLite/Postgres, Markdown в git, JSON/structured output, eval-фреймворки, golden datasets.
+
+## Кому подхожу
+
+- [Профили клиентов и форматы работы](https://www.pesterev.tech/#fit): стартапы 0→1 с AI-нативным продуктом, B2B-команды с повторяющимися процессами, founding-engineer fit. Форматы: консультация, аудит, fractional, founding.
+
+## Контакты
+
+- Telegram: [@timursky](https://t.me/timursky)
+- Email: pesterevtimur78@gmail.com
+- Сайт: https://www.pesterev.tech
+- Базируюсь в Казани, работаю удалённо с командами в РФ и за рубежом.
