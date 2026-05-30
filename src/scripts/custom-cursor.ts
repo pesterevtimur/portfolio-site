@@ -27,11 +27,34 @@ if (HOVER_DEVICE) {
     let ringY = mouseY;
     let snapTarget: HTMLElement | null = null;
 
+    let rafId = 0;
+    const IDLE_EPSILON = 0.5;
+
+    const requestFrame = (): void => {
+      if (!rafId) rafId = requestAnimationFrame(frame);
+    };
+
+    const frame = (): void => {
+      dotX += (mouseX - dotX) * DOT_K;
+      dotY += (mouseY - dotY) * DOT_K;
+      ringX += (mouseX - ringX) * RING_K;
+      ringY += (mouseY - ringY) * RING_K;
+      dot.style.transform = `translate3d(${dotX}px, ${dotY}px, 0) translate(-50%, -50%)`;
+      ring.style.transform = `translate3d(${ringX}px, ${ringY}px, 0) translate(-50%, -50%)`;
+      const idle =
+        Math.abs(mouseX - dotX) < IDLE_EPSILON &&
+        Math.abs(mouseY - dotY) < IDLE_EPSILON &&
+        Math.abs(mouseX - ringX) < IDLE_EPSILON &&
+        Math.abs(mouseY - ringY) < IDLE_EPSILON;
+      rafId = idle ? 0 : requestAnimationFrame(frame);
+    };
+
     document.addEventListener('mousemove', (e: MouseEvent) => {
       if (!snapTarget) {
         mouseX = e.clientX;
         mouseY = e.clientY;
       }
+      requestFrame();
     });
 
     const targets = document.querySelectorAll<HTMLElement>(SNAP_SELECTOR);
@@ -44,25 +67,18 @@ if (HOVER_DEVICE) {
         ring.style.width = `${rect.width + RING_PADDING}px`;
         ring.style.height = `${rect.height + RING_PADDING}px`;
         ring.style.borderRadius = '8px';
+        requestFrame();
       });
       target.addEventListener('mouseleave', () => {
         snapTarget = null;
         ring.style.width = '';
         ring.style.height = '';
         ring.style.borderRadius = '';
+        requestFrame();
       });
     });
 
-    const frame = (): void => {
-      dotX += (mouseX - dotX) * DOT_K;
-      dotY += (mouseY - dotY) * DOT_K;
-      ringX += (mouseX - ringX) * RING_K;
-      ringY += (mouseY - ringY) * RING_K;
-      dot.style.transform = `translate3d(${dotX}px, ${dotY}px, 0) translate(-50%, -50%)`;
-      ring.style.transform = `translate3d(${ringX}px, ${ringY}px, 0) translate(-50%, -50%)`;
-      requestAnimationFrame(frame);
-    };
-    requestAnimationFrame(frame);
+    requestFrame();
   };
 
   if (document.readyState === 'loading') {

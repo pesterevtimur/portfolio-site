@@ -215,7 +215,8 @@ body.has-custom-cursor {
 }
 
 body.has-custom-cursor a,
-body.has-custom-cursor button {
+body.has-custom-cursor button,
+body.has-custom-cursor [data-cursor="snap"] {
   cursor: none;
 }
 
