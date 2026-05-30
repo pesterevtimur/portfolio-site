@@ -20,7 +20,7 @@ const accentColors = {
 const c = accentColors[accent];
 ---
 
-<article class="case-card" style={`--accent-glow: ${c.glow}; --accent-edge: ${c.edge};`}>
+<article class="case-card" data-magnetic style={`--accent-glow: ${c.glow}; --accent-edge: ${c.edge};`}>
   <div class="case-card__accent" aria-hidden="true"></div>
 
   <header class="case-card__head">
@@ -69,11 +69,12 @@ const c = accentColors[accent];
 
   .case-card__accent {
     position: absolute;
-    top: -80px;
-    right: -80px;
-    width: 280px;
-    height: 280px;
-    background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+    inset: 0;
+    background: radial-gradient(
+      circle 280px at calc(var(--mx, 100) * 1%) calc(var(--my, 0) * 1%),
+      var(--accent-glow) 0%,
+      transparent 70%
+    );
     pointer-events: none;
     z-index: 0;
   }
