@@ -43,5 +43,8 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://pesterev.te
       <slot />
     </main>
     <Analytics />
+    <script>
+      import '../scripts/magnetic-gradient';
+    </script>
   </body>
 </html>
