@@ -1,5 +1,6 @@
-// Custom cursor — sharp dot + slow ring with rAF lerp.
+// Custom cursor — sharp dot + slow ring with magnetic snap.
 // Hides native cursor and renders #cursor-dot / #cursor-ring via rAF + lerp.
+// On hover над a/button/[data-cursor="snap"] — dot snaps to center, ring grows to bounds.
 // Touch / reduced-motion / JS-disabled — graceful fallback to native.
 
 const HOVER_DEVICE = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
@@ -8,6 +9,8 @@ const REDUCED_MOTION = window.matchMedia('(prefers-reduced-motion: reduce)').mat
 if (HOVER_DEVICE) {
   const DOT_K = REDUCED_MOTION ? 1 : 0.85;
   const RING_K = REDUCED_MOTION ? 1 : 0.15;
+  const RING_PADDING = 12;
+  const SNAP_SELECTOR = 'a, button, [data-cursor="snap"]';
 
   const init = (): void => {
     const dot = document.getElementById('cursor-dot');
@@ -22,10 +25,32 @@ if (HOVER_DEVICE) {
     let dotY = mouseY;
     let ringX = mouseX;
     let ringY = mouseY;
+    let snapTarget: HTMLElement | null = null;
 
     document.addEventListener('mousemove', (e: MouseEvent) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
+      if (!snapTarget) {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+      }
+    });
+
+    const targets = document.querySelectorAll<HTMLElement>(SNAP_SELECTOR);
+    targets.forEach((target) => {
+      target.addEventListener('mouseenter', () => {
+        snapTarget = target;
+        const rect = target.getBoundingClientRect();
+        mouseX = rect.left + rect.width / 2;
+        mouseY = rect.top + rect.height / 2;
+        ring.style.width = `${rect.width + RING_PADDING}px`;
+        ring.style.height = `${rect.height + RING_PADDING}px`;
+        ring.style.borderRadius = '8px';
+      });
+      target.addEventListener('mouseleave', () => {
+        snapTarget = null;
+        ring.style.width = '';
+        ring.style.height = '';
+        ring.style.borderRadius = '';
+      });
     });
 
     const frame = (): void => {
