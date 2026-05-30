@@ -6,7 +6,7 @@ const badges = [
 ];
 ---
 
-<section class="hero">
+<section class="hero" data-magnetic>
   <div class="hero__inner">
     <p class="label hero__label">→ AI-архитектура · B2B</p>
     <h1 class="hero__headline">
@@ -48,7 +48,11 @@ const badges = [
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse at top right, var(--bg-grad-hi) 0%, var(--bg-base) 60%);
+    background: radial-gradient(
+      ellipse at calc(var(--mx, 100) * 1%) calc(var(--my, 0) * 1%),
+      var(--bg-grad-hi) 0%,
+      var(--bg-base) 60%
+    );
     z-index: 0;
   }
 
