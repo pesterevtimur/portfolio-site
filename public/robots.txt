@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://pesterev.tech/sitemap-index.xml
+Sitemap: https://www.pesterev.tech/sitemap-index.xml
