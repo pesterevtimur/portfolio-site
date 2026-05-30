@@ -37,6 +37,8 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://pesterev.te
     <title>{title}</title>
   </head>
   <body>
+    <div id="cursor-dot" aria-hidden="true"></div>
+    <div id="cursor-ring" aria-hidden="true"></div>
     <a id="top" tabindex="-1" aria-hidden="true"></a>
     <TopNav />
     <main>

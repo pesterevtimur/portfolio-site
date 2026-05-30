@@ -177,3 +177,49 @@ a:hover {
     transition: none;
   }
 }
+
+/* === Custom cursor === */
+/* Скрыт по умолчанию. JS добавляет класс body.has-custom-cursor только */
+/* на (hover: hover) and (pointer: fine), что показывает курсор и скрывает native. */
+/* JS-disabled fallback: курсор не появится, native останется. */
+
+#cursor-dot,
+#cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  display: none;
+  will-change: transform;
+  mix-blend-mode: difference;
+}
+
+#cursor-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ffffff;
+}
+
+#cursor-ring {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1.5px solid #ffffff;
+  transition: width 0.2s ease-out, height 0.2s ease-out, border-radius 0.2s ease-out;
+}
+
+body.has-custom-cursor {
+  cursor: none;
+}
+
+body.has-custom-cursor a,
+body.has-custom-cursor button {
+  cursor: none;
+}
+
+body.has-custom-cursor #cursor-dot,
+body.has-custom-cursor #cursor-ring {
+  display: block;
+}
