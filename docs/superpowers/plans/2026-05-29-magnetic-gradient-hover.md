@@ -42,13 +42,13 @@
 
 @property --mx {
   syntax: '<number>';
-  inherits: false;
+  inherits: true;
   initial-value: 100;
 }
 
 @property --my {
   syntax: '<number>';
-  inherits: false;
+  inherits: true;
   initial-value: 0;
 }
 

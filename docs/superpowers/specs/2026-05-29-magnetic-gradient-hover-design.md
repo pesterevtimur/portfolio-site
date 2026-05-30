@@ -50,7 +50,7 @@ background: radial-gradient(
 |---|---|---|
 | `src/scripts/magnetic-gradient.ts` | новый | ~20 строк: querySelectorAll(`[data-magnetic]`) + mousemove/mouseleave listeners + writer переменных. Top-level гейт: `if (!matchMedia('(hover: hover) and (pointer: fine)').matches) return`. |
 | `src/layouts/Layout.astro` | edit | +1 `<script>` импорт скрипта. |
-| `src/styles/globals.css` | edit | `@property --mx`, `@property --my` (с `initial-value: 100`/`0` соответственно и `syntax: '<number>'`). Media-блок `@media (prefers-reduced-motion: reduce)` обнуляет transition на этих переменных. |
+| `src/styles/globals.css` | edit | `@property --mx`, `@property --my` (с `initial-value: 100`/`0`, `syntax: '<number>'`, **и `inherits: true`**). Без `inherits: true` дочерние элементы (`.hero::before`, `.case-card__accent`) читают начальное значение вместо наследуемого от родителя, и градиент остаётся заблокирован. Media-блок `@media (prefers-reduced-motion: reduce)` обнуляет transition. |
 | `src/components/Hero.astro` | edit | `data-magnetic` на `<section>`. `.hero::before` background меняется на `radial-gradient(ellipse at calc(var(--mx, 100) * 1%) calc(var(--my, 0) * 1%), ...)` — defaults 100/0 совпадают с текущим `at top right`. |
 | `src/components/CaseCard.astro` | edit | `data-magnetic` на `<article>`. `.case-card__accent` теряет фиксированные `top: -80px; right: -80px; width: 280px; height: 280px` → становится `inset: 0`. Background меняется на radial gradient с теми же `--mx`/`--my`. Defaults (100, 0) визуально равны текущему углу. |
 
