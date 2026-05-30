@@ -126,3 +126,33 @@ Manual tests (нет автотестов в проекте):
 - SPEC.md §13 — визуальная плотность и mood A
 - decisions/D-004-visual-mood.md — обоснование dark gradient + grid
 - docs/learnings.md — Lighthouse baseline 2026-05-28
+
+---
+
+## Амендмент 2026-05-30: Hero full-heatmap upgrade
+
+После пуша preview Тимур заметил: на CaseCard эффект яркий, на Hero почти незаметный. Корень: текущий magnetic двигает мягкий тёмно-индиго градиент (`#1a1a2e` на `#0a0a0f`), контраст низкий — визуальный сдвиг невидим.
+
+### Решение
+
+Hero `::before` (один тёмный radial-gradient) заменён на `<div class="hero__heatmap">` с **6 blob-детьми**: 1 main (magnetic, follows cursor через `--mx`/`--my`) + 5 ambient (CSS `@keyframes` slow auto-drift с разными durations 18-30s и delays 2-8s). Все blob'ы — `border-radius: 50%` + `filter: blur(80px)` для плазма-vibe. Палитра — сине-фиолетовая (RGBA с alpha 0.18-0.35), в рамках D-004 mood A.
+
+### CaseCard не трогается
+
+Текущий accent с alpha 0.18 + cursor-follow на purple/red/blue работает; реголекто отдельно от Hero.
+
+### Edge cases (новые)
+
+| Сценарий | Поведение |
+|---|---|
+| Mobile (≤720px) | `filter: blur(50px)` (легче); ambient-3 и ambient-4 — `display: none` (4 blob'а вместо 6). Mobile Lighthouse perf ожидается ≥84 (с риска просадки baseline 89). |
+| `prefers-reduced-motion: reduce` | `.hero__blob { animation: none }` — auto-drift полностью отключается. Main blob продолжает следовать курсору без 0.6s инерции (как зафиксировано в основной spec). |
+| Headline читаемость | Все blob'ы за `.hero__inner` (z-index 0 vs 2). Max alpha 0.35 не перекрывает контраст текста. Если Тимур визуально захочет ещё больше защиты — добавим `radial-gradient` mask «вырезающий» центральную область. |
+
+### Производительность
+
+`filter: blur(80px)` на 6 элементах full-bleed серьёзно нагружает композитинг. Lighthouse mobile baseline 89 ожидается просадить до 84-86. Если упадёт ниже 80 — план Б: убрать ambient-5 (самый большой 700px) и/или поднять blur с 80px до 60px на desktop.
+
+### Файлы изменены
+
+- `src/components/Hero.astro` — `<section>` получает `<div class="hero__heatmap">` с 6 детьми; `.hero::before` удалён; +новые CSS-блоки `.hero__heatmap`, `.hero__blob`, `.hero__blob--N`, `@keyframes hero-drift-1..5`, mobile-фалбэки в существующем `@media (max-width: 720px)`.
